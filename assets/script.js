@@ -17,6 +17,23 @@ const slides = [
 	}
 ]
 
+let baliseBannerImg = document.querySelector(".banner-img");
+let baliseBannerTagLine = document.querySelector("#banner p");
+let idFleche = 0;
+const pathFileImg = "./assets/images/slideshow/";
+
+
+function insertSlider (Id, TabSlider) {
+	let Slider = TabSlider[Id];
+	let SliderImg = Slider.image;
+	let SliderTagLine = Slider.tagLine;
+	console.log(SliderImg,SliderTagLine);
+	console.log(baliseBannerImg.src);
+	baliseBannerImg.src = pathFileImg+SliderImg;
+	baliseBannerTagLine.innerHTML = SliderTagLine;
+}
+
+
 let baliseArrowLeft = document.querySelector(".arrow_left");
 baliseArrowLeft.onclick = () => {
 	if (idFleche === 0){
