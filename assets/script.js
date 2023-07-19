@@ -31,6 +31,8 @@ function insertSlider (Id, TabSlider) {
 	console.log(baliseBannerImg.src);
 	baliseBannerImg.src = pathFileImg+SliderImg;
 	baliseBannerTagLine.innerHTML = SliderTagLine;
+	bullet(Id);
+	idFleche = Id;
 }
 
 
@@ -43,7 +45,7 @@ baliseArrowLeft.onclick = () => {
 	}
 	console.log(idFleche);
 	insertSlider(idFleche,slides);
-	bullet();
+	bullet(idFleche);
 }
 
 let baliseArrowRight = document.querySelector(".arrow_right");
@@ -55,23 +57,36 @@ baliseArrowRight.onclick = () => {
 	}
 	console.log(idFleche);
 	insertSlider(idFleche,slides);
-	bullet();
+	bullet(idFleche);
 }
 
 // Affiches des points slider selon le nombre de diapo
 
+function dotSelectd(j) {
+	let baliseA;
+	baliseA = `<a onclick="insertSlider(${j},slides)" href="#" class="dot dot_selected")></a>`;
+	return baliseA;
+}
+
+function dot(j) {
+	let baliseA;
+	baliseA = `<a onclick="insertSlider(${j},slides)" href="#" class="dot")></a>`;
+	return baliseA;
+}
+
 let baliseDivDots = document.querySelector(".dots");
-function bullet() {
+function bullet(item) {
 	let baliseADots;
 	baliseDivDots.innerHTML = '';
 	for (i=0; i<slides.length; i++) {
-		if (i === idFleche) {
-			baliseADots = '<a href="#" class="dot dot_selected"></a>';
+		if (i === item) {
+			baliseADots = dotSelectd(i);
 		} else {
-			baliseADots = '<a href="#" class="dot"></a>';
+			baliseADots = dot(i);
 		}
+		console.log(baliseADots);
 		baliseDivDots.innerHTML += baliseADots;
 	}
 }
 
-bullet();
+bullet(0);
