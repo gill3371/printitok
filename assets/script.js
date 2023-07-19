@@ -60,31 +60,20 @@ baliseArrowRight.onclick = () => {
 
 // Affiches des points slider selon le nombre de diapo
 
-function dotSelectd(j) {
-	let baliseA;
-	baliseA = `<a onclick="insertSlider(${j},slides)" href="#" class="dot dot_selected")></a>`;
-	return baliseA;
-}
-
-function dot(j) {
-	let baliseA;
-	baliseA = `<a onclick="insertSlider(${j},slides)" href="#" class="dot")></a>`;
-	return baliseA;
-}
-
 let baliseDivDots = document.querySelector(".dots");
 function bullet(item) {
 	let baliseADots;
 	baliseDivDots.innerHTML = '';
 	for (i=0; i<slides.length; i++) {
 		if (i === item) {
-			baliseADots = dotSelectd(i);
+			baliseADots = `<a onclick="insertSlider(${i},slides)" href="#" class="dot dot_selected")></a>`;
 		} else {
-			baliseADots = dot(i);
+			baliseADots = `<a onclick="insertSlider(${i},slides)" href="#" class="dot")></a>`;
 		}
 		console.log(baliseADots);
 		baliseDivDots.innerHTML += baliseADots;
 	}
 }
 
+// Initialisation du bullet au démarrage
 bullet(0);
