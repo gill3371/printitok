@@ -45,7 +45,6 @@ baliseArrowLeft.onclick = () => {
 	}
 	console.log(idFleche);
 	insertSlider(idFleche,slides);
-	bullet(idFleche);
 }
 
 let baliseArrowRight = document.querySelector(".arrow_right");
@@ -57,7 +56,6 @@ baliseArrowRight.onclick = () => {
 	}
 	console.log(idFleche);
 	insertSlider(idFleche,slides);
-	bullet(idFleche);
 }
 
 // Affiches des points slider selon le nombre de diapo
